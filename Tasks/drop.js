@@ -11,12 +11,13 @@
 'use strict';
 
 const Drop = (dictionary, ...keysToDelete) => {
+  const newDictionary = { ...dictionary };
   keysToDelete.forEach((key) => {
-    if (dictionary.hasOwnProperty(key)) {
-      delete dictionary[key];
+    if (newDictionary.hasOwnProperty(key)) {
+      delete newDictionary[key];
     }
   });
-  return dictionary;
+  return newDictionary;
 };
 
 module.exports = Drop;
