@@ -12,7 +12,7 @@
 const EXCEPT = (incomingValues, ...excludedKeys) => {
   const result = {};
 
-  for (const key in incomingValues) {
+  for (const key of Object.keys(incomingValues)) {
     if (!excludedKeys.includes(key)) {
       result[key] = incomingValues[key];
     }
