@@ -14,9 +14,17 @@ const compare = (firstValues, secondValues) => {
   const keysSecond = Object.keys(secondValues);
 
   if (keysFirst.length !== keysSecond.length) return false;
-  if (!keysFirst.every((key, index) => key === keysSecond[index])) return false;
 
-  return keysFirst.every((key) => firstValues[key] === secondValues[key]);
+  for (let i = 0; i < keysFirst.length; i++) {
+    if (
+      keysFirst[i] !== keysSecond[i] ||
+      firstValues[keysFirst[i]] !== secondValues[keysSecond[i]]
+    ) {
+      return false;
+    }
+  }
+
+  return true;
 };
 
 module.exports = compare;
