@@ -14,7 +14,7 @@ const getDayNumber = (day) => {
   const index = DAYS_OF_WEEK.findIndex((substr) =>
     day.startsWith(substr.toLowerCase())
   );
-  return index !== -1 ? index + 1 : -1;
+  return index + 1 || -1;
 };
 
 module.exports = getDayNumber;
