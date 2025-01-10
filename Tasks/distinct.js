@@ -9,14 +9,13 @@
 'use strict';
 
 const distinct = (data) => {
-  const uniqueValues = new Set();
-  return data.filter((item) => {
-    if (!uniqueValues.has(item)) {
-      uniqueValues.add(item);
-      return true;
+  const uniqueValues = [];
+  for (let i = 0; i < data.length; i++) {
+    if (!uniqueValues.includes(data[i])) {
+      uniqueValues.push(data[i]);
     }
-    return false;
-  });
+  }
+  return uniqueValues;
 };
 
 module.exports = distinct;
